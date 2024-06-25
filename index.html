@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Network Infrastructure Diagram</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .network-box {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+        }
+        .arrow {
+            margin: 5px auto;
+            text-align: center;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+        }
+        .arrow::after {
+            content: '↓';
+            font-size: 24px;
+        }
+        .arrow-up {
+            margin: 5px auto;
+            text-align: center;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+        }
+        .arrow-up::after {
+            content: '↑';
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Visual Network Infrastructure Diagram for Interactive Game Platform</h1>
+        <!-- Accordion for Descriptions -->
+        <div id="accordion">
+            <!-- Internet -->
+            <div class="network-box">
+                <div class="card">
+                    <div class="card-header" id="headingInternet">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseInternet" aria-expanded="true" aria-controls="collapseInternet">
+                                Internet
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseInternet" class="collapse show" aria-labelledby="headingInternet" data-parent="#accordion">
+                        <div class="card-body">
+                            <!-- Internet details -->
+                            <strong>Security Concerns Detailed:</strong>
+                            <ul>
+                                <li>Exposure to external threats such as DDoS attacks, requiring comprehensive network monitoring and robust denial-of-service defense strategies.</li>
+                                <li>Implementation of perimeter security using next-generation firewalls and intrusion prevention systems to analyze and stop malicious traffic before it enters the network.</li>
+                                <li>Regular penetration testing and vulnerability assessments to identify and mitigate potential security weaknesses.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="arrow"></div>
+            </div>
+
+            <!-- Firewall -->
+            <div class="network-box">
+                <div class="card">
+                    <div class="card-header" id="headingFirewall">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFirewall" aria-expanded="false" aria-controls="collapseFirewall">
+                                Firewall
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFirewall" class="collapse" aria-labelledby="headingFirewall" data-parent="#accordion">
+                        <div class="card-body">
+                            <!-- Firewall details -->
+                            <strong>Security Concerns Detailed:</strong>
+                            <ul>
+                                <li>Configuration of firewall rules to precisely control both inbound and outbound traffic based on the principle of least privilege.</li>
+                                <li>Deployment of stateful inspections to monitor the state of active connections and ensure that only legitimate traffic is allowed.</li>
+                                <li>Use of deep packet inspection to detect and prevent sophisticated attacks hidden within legitimate traffic.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="arrow"></div>
+            </div>
+
+            <!-- External Network (Signaling & TURN Server) -->
+            <div class="network-box">
+                <div class="card">
+                    <div class="card-header" id="headingExternalNetwork">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseExternalNetwork" aria-expanded="false" aria-controls="collapseExternalNetwork">
+                                External Network (Signaling & TURN Server)
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseExternalNetwork" class="collapse" aria-labelledby="headingExternalNetwork" data-parent="#accordion">
+                        <div class="card-body">
+                            <!-- External Network details -->
+                            <strong>Security Concerns Detailed:</strong>
+                            <ul>
+                                <li>Protection against potential eavesdropping and tampering through end-to-end encryption of all signaling and TURN traffic.</li>
+                                <li>Regular security updates and patch management to address software vulnerabilities in the signaling and TURN servers.</li>
+                                <li>Implementation of rate limiting and anti-flood mechanisms to mitigate the impact of DDoS attacks.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="arrow"></div>
+            </div>
+
+            <!-- Secure VLAN for Gaming (including Game Server) -->
+            <div class="network-box">
+                <div class="card">
+                    <div class="card-header" id="headingGamingVLAN">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseGamingVLAN" aria-expanded="false" aria-controls="collapseGamingVLAN">
+                                Secure VLAN for Gaming (including Game Server)
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseGamingVLAN" class="collapse" aria-labelledby="headingGamingVLAN" data-parent="#accordion">
+                        <div class="card-body">
+                            <!-- Secure VLAN for Gaming details -->
+                            <strong>Security Concerns Detailed:</strong>
+                            <ul>
+                                <li>Isolation of the gaming VLAN to prevent cross-network attacks and limit potential breaches to a confined area.</li>
+                                <li>Implementation of strict firewall policies specific to the gaming VLAN to control data flows and prevent unauthorized access.</li>
+                                <li>Active surveillance and proactive threat management within the VLAN to ensure gaming operations are secure from internal and external threats.</li>
+                                <li>Hardening of the game server against attacks, including the implementation of application-level firewalls and advanced security protocols.</li>
+                                <li>Regular security audits and penetration testing to identify and address vulnerabilities in the game logic processor and associated infrastructure.</li>
+                                <li>Comprehensive logging and incident response strategies to ensure any security breaches can be quickly contained and analyzed.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="arrow"></div>
+            </div>
+
+            <!-- Internal Network (CompanyWide LAN) -->
+            <div class="network-box">
+                <div class="card">
+                    <div class="card-header" id="headingInternalNetwork">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseInternalNetwork" aria-expanded="false" aria-controls="collapseInternalNetwork">
+                                Internal Network (CompanyWide LAN)
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseInternalNetwork" class="collapse" aria-labelledby="headingInternalNetwork" data-parent="#accordion">
+                        <div class="card-body">
+                            <!-- Internal Network details -->
+                            <strong>Security Concerns Detailed:</strong>
+                            <ul>
+                                <li>Network segmentation to divide the broader internal network into smaller, controlled zones, enhancing security and reducing potential attack surfaces.</li>
+                                <li>Strong authentication mechanisms and network access controls to ensure only authorized devices and users can access critical network resources.</li>
+                                <li>Continuous network monitoring and anomaly detection to quickly identify and respond to suspicious activities or potential breaches.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="arrow"></div>
+            </div>
+
+            <!-- LED Wall Controller & Other Resources -->
+            <div class="network-box">
+                <div class="card">
+                    <div class="card-header" id="headingLEDWallController">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseLEDWallController" aria-expanded="false" aria-controls="collapseLEDWallController">
+                                LED Wall Controller & Other Resources
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseLEDWallController" class="collapse" aria-labelledby="headingLEDWallController" data-parent="#accordion">
+                        <div class="card-body">
+                            <!-- LED Wall Controller details -->
+                            <strong>Security Concerns Detailed:</strong>
+                            <ul>
+                                <li>Physical security measures to protect the LED wall controller from unauthorized physical access.</li>
+                                <li>Secure configuration and regular updates to the controller's software to guard against exploits.</li>
+                                <li>Encryption of data transmissions to and from the controller to prevent interception and manipulation of display content.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
